@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About & Contact — baani.art</title>
+  <meta name="description" content="About Archana — self-taught Indian folk artist working in Pattachitra, Kalamkari, Madhubani, and Gond traditions from her home studio.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ── Nav ──────────────────────────────────────────────── -->
+  <nav class="nav" role="navigation">
+    <a href="index.html" class="nav-logo">baani<span>.art</span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links" role="list">
+      <li><a href="index.html">Gallery</a></li>
+      <li><a href="about.html" class="active">About &amp; Contact</a></li>
+    </ul>
+  </nav>
+  <div class="folk-border"></div>
+
+  <main>
+
+    <!-- ── About Hero ───────────────────────────────────────── -->
+    <section class="about-hero">
+      <div class="about-photo-wrap">
+        <!--
+          Replace the div below with:
+          <img src="images/archana.jpg" alt="Archana in her studio">
+          and remove the about-photo wrapper div.
+        -->
+        <div class="about-photo"></div>
+      </div>
+      <div class="about-text">
+        <p class="eyebrow">The Artist</p>
+        <h1>Archana</h1>
+        <p class="about-location">Seattle, Washington</p>
+        <p>
+          Rooted in the <strong>ancient visual languages of India</strong>, Archana brings centuries-old folk traditions to life from her home studio in Seattle — one careful brushstroke at a time.
+        </p>
+        <p>
+          What began as a quiet passion has grown into a deeply personal practice. Each painting is an act of devotion — to the stories, deities, and patterns that have been passed down through generations of Indian artisans.
+        </p>
+        <p>
+          Working primarily with natural pigments on handmade paper and fabric, she explores the intersection of <strong>ritual, mythology, and everyday beauty</strong> — carrying these living traditions into the heart of the Pacific Northwest.
+        </p>
+      </div>
+    </section>
+
+    <div class="folk-border folk-border--thin"></div>
+
+    <!-- ── Art Traditions ───────────────────────────────────── -->
+    <section class="traditions">
+      <h2>The Art Traditions</h2>
+      <p class="traditions__lead">Four ancient styles, one devoted hand</p>
+      <div class="traditions-grid">
+
+        <div class="tradition-card">
+          <h3>Pattachitra</h3>
+          <p>
+            Originating in Odisha, Pattachitra — meaning "cloth picture" — is one of India's oldest art forms. Known for its intricate detailing, bold outlines, and mythological themes drawn from the Jagannath tradition and Hindu epics.
+          </p>
+        </div>
+
+        <div class="tradition-card">
+          <h3>Kalamkari</h3>
+          <p>
+            The art of the "kalam" (pen), Kalamkari uses fine lines and natural dyes to tell stories from the Ramayana and Mahabharata. Archana's ink work carries the precision and devotion this ancient tradition demands.
+          </p>
+        </div>
+
+        <div class="tradition-card">
+          <h3>Madhubani</h3>
+          <p>
+            Born in the Mithila region of Bihar, Madhubani paintings are alive with bold patterns, geometric motifs, and vibrant color. Traditionally painted by women on walls and floors, today they travel the world on paper and cloth.
+          </p>
+        </div>
+
+        <div class="tradition-card">
+          <h3>Gond Art</h3>
+          <p>
+            From the Gond tribal community of central India, Gond art transforms the natural world into dense, spiraling patterns. Its distinctive dot-and-line technique gives every creature, tree, and landscape a rhythmic inner life.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Commission CTA ───────────────────────────────────── -->
+    <section class="commission" id="commission">
+      <h2>Commission a Piece</h2>
+      <p>
+        Interested in owning an original or commissioning something personal — a deity, a story, a name rendered in a tradition you love? Reach out and let's create something together.
+      </p>
+      <a href="#contact" class="btn">Get in Touch</a>
+    </section>
+
+    <!-- ── Contact Form ──────────────────────────────────────── -->
+    <section class="contact" id="contact">
+      <h2>Get in Touch</h2>
+      <p class="contact__lead">Commissions, purchases, or just to say hello — all welcome.</p>
+
+      <div data-fs-success class="form-success" hidden>
+        <p>Thank you — your message has been sent. Archana will be in touch soon.</p>
+      </div>
+      <div data-fs-error class="form-error-banner" hidden></div>
+
+      <form id="contact-form" novalidate>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Priya Sharma" required data-fs-field>
+            <span data-fs-error="name" class="field-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="priya@example.com" required data-fs-field>
+            <span data-fs-error="email" class="field-error"></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">What's this about?</label>
+          <select id="subject" name="subject" data-fs-field>
+            <option value="">Select a reason</option>
+            <option value="commission">Commission a piece</option>
+            <option value="purchase">Purchase an existing work</option>
+            <option value="inquiry">General inquiry</option>
+            <option value="other">Something else</option>
+          </select>
+          <span data-fs-error="subject" class="field-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell me what you have in mind…" required data-fs-field></textarea>
+          <span data-fs-error="message" class="field-error"></span>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="btn--dark" data-fs-submit-btn>Send Message</button>
+          <p class="form-alt">
+            Or reach me on Instagram:
+            <a href="https://instagram.com/art.baani" target="_blank" rel="noopener">@art.baani</a>
+          </p>
+        </div>
+
+      </form>
+    </section>
+
+  </main>
+
+  <div class="folk-border"></div>
+  <footer>
+    <p>© 2025 Archana &nbsp;&middot;&nbsp; Seattle, WA &nbsp;&middot;&nbsp; <a href="https://instagram.com/art.baani" target="_blank" rel="noopener">@art.baani</a></p>
+    <p class="footer-domain">baani.art</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+    formspree('initForm', { formElement: '#contact-form', formId: 'xojrpway' });
+  </script>
+  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>baani.art — Indian Folk Art by Archana</title>
+  <meta name="description" content="Original Indian folk art by Archana — Pattachitra, Kalamkari, Madhubani, and Gond paintings, handcrafted in a home studio.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ── Nav ──────────────────────────────────────────────── -->
+  <nav class="nav" role="navigation">
+    <a href="index.html" class="nav-logo">baani<span>.art</span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links" role="list">
+      <li><a href="index.html" class="active">Gallery</a></li>
+      <li><a href="about.html">About &amp; Contact</a></li>
+    </ul>
+  </nav>
+  <div class="folk-border"></div>
+
+  <main>
+
+    <!-- ── Hero ─────────────────────────────────────────────── -->
+    <section class="hero">
+      <p class="hero-label">Indian Folk Art</p>
+      <h1 class="hero-name">Archana</h1>
+      <p class="hero-styles">Pattachitra &middot; Kalamkari &middot; Madhubani &middot; Gond</p>
+    </section>
+
+    <div class="folk-border folk-border--thin"></div>
+
+    <!-- ── Gallery ──────────────────────────────────────────── -->
+    <!--
+      HOW TO ADD REAL IMAGES:
+      Replace each <div class="placeholder ..."> with:
+        <img src="images/your-file.jpg" alt="Description of the piece">
+      Keep the <div class="overlay"> and <figure> wrapper as-is.
+    -->
+    <section class="gallery" id="gallery" aria-label="Artwork gallery">
+
+      <figure class="gallery-item" data-index="0" data-style="Pattachitra" tabindex="0" role="button" aria-label="View Pattachitra">
+        <div class="placeholder portrait"><span class="placeholder__label">Pattachitra</span></div>
+        <div class="overlay"><span class="overlay-text">Pattachitra</span></div>
+      </figure>
+
+      <figure class="gallery-item" data-index="1" data-style="Kalamkari" tabindex="0" role="button" aria-label="View Kalamkari">
+        <div class="placeholder square"><span class="placeholder__label">Kalamkari</span></div>
+        <div class="overlay"><span class="overlay-text">Kalamkari</span></div>
+      </figure>
+
+      <figure class="gallery-item" data-index="2" data-style="Madhubani" tabindex="0" role="button" aria-label="View Madhubani">
+        <div class="placeholder portrait"><span class="placeholder__label">Madhubani</span></div>
+        <div class="overlay"><span class="overlay-text">Madhubani</span></div>
+      </figure>
+
+      <figure class="gallery-item" data-index="3" data-style="Gond Art" tabindex="0" role="button" aria-label="View Gond Art">
+        <div class="placeholder landscape"><span class="placeholder__label">Gond Art</span></div>
+        <div class="overlay"><span class="overlay-text">Gond Art</span></div>
+      </figure>
+
+      <figure class="gallery-item" data-index="4" data-style="Pattachitra" tabindex="0" role="button" aria-label="View Pattachitra">
+        <div class="placeholder square"><span class="placeholder__label">Pattachitra</span></div>
+        <div class="overlay"><span class="overlay-text">Pattachitra</span></div>
+      </figure>
+
+      <figure class="gallery-item" data-index="5" data-style="Kalamkari" tabindex="0" role="button" aria-label="View Kalamkari">
+        <div class="placeholder portrait"><span class="placeholder__label">Kalamkari</span></div>
+        <div class="overlay"><span class="overlay-text">Kalamkari</span></div>
+      </figure>
+
+      <figure class="gallery-item" data-index="6" data-style="Madhubani" tabindex="0" role="button" aria-label="View Madhubani">
+        <div class="placeholder landscape"><span class="placeholder__label">Madhubani</span></div>
+        <div class="overlay"><span class="overlay-text">Madhubani</span></div>
+      </figure>
+
+      <figure class="gallery-item" data-index="7" data-style="Pattachitra" tabindex="0" role="button" aria-label="View Pattachitra">
+        <div class="placeholder portrait"><span class="placeholder__label">Pattachitra</span></div>
+        <div class="overlay"><span class="overlay-text">Pattachitra</span></div>
+      </figure>
+
+      <figure class="gallery-item" data-index="8" data-style="Gond Art" tabindex="0" role="button" aria-label="View Gond Art">
+        <div class="placeholder square"><span class="placeholder__label">Gond Art</span></div>
+        <div class="overlay"><span class="overlay-text">Gond Art</span></div>
+      </figure>
+
+      <figure class="gallery-item" data-index="9" data-style="Kalamkari" tabindex="0" role="button" aria-label="View Kalamkari">
+        <div class="placeholder landscape"><span class="placeholder__label">Kalamkari</span></div>
+        <div class="overlay"><span class="overlay-text">Kalamkari</span></div>
+      </figure>
+
+      <figure class="gallery-item" data-index="10" data-style="Madhubani" tabindex="0" role="button" aria-label="View Madhubani">
+        <div class="placeholder portrait"><span class="placeholder__label">Madhubani</span></div>
+        <div class="overlay"><span class="overlay-text">Madhubani</span></div>
+      </figure>
+
+      <figure class="gallery-item" data-index="11" data-style="Pattachitra" tabindex="0" role="button" aria-label="View Pattachitra">
+        <div class="placeholder square"><span class="placeholder__label">Pattachitra</span></div>
+        <div class="overlay"><span class="overlay-text">Pattachitra</span></div>
+      </figure>
+
+    </section>
+
+    <!-- ── Studio Peek ──────────────────────────────────────── -->
+    <section class="studio-peek">
+      <div class="studio-peek__heading">
+        <h2>From the Studio</h2>
+        <p>A glimpse behind every piece</p>
+      </div>
+      <div class="studio-peek__grid">
+        <!-- Replace with studio/process photos when available -->
+        <div class="studio-placeholder"></div>
+        <div class="studio-placeholder"></div>
+        <div class="studio-placeholder"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="folk-border"></div>
+
+  <!-- ── Subtle contact nudge ─────────────────────────────── -->
+  <section class="home-cta">
+    <p>Drawn to a piece, or have something in mind?</p>
+    <a href="about.html#contact" class="home-cta__link">Reach out to Archana <span aria-hidden="true">→</span></a>
+  </section>
+
+  <footer>
+    <p>© 2025 Archana &nbsp;&middot;&nbsp; Seattle, WA &nbsp;&middot;&nbsp; <a href="https://instagram.com/art.baani" target="_blank" rel="noopener">@art.baani</a></p>
+    <p class="footer-domain">baani.art</p>
+  </footer>
+
+  <!-- ── Lightbox ──────────────────────────────────────────── -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Artwork viewer">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous">&#8249;</button>
+    <div class="lightbox-inner" id="lightbox-inner"></div>
+    <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next">&#8250;</button>
+    <p class="lightbox-caption" id="lightbox-caption"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
