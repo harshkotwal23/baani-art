@@ -167,6 +167,51 @@
           <span data-fs-error="subject" class="field-error"></span>
         </div>
 
+        <!-- ── Book order extras (shown only for book subject) ── -->
+        <div id="book-extras" class="book-extras" hidden>
+          <div class="book-extras__banner">
+            <strong>Hanuman Chalisa — $95.99 per copy</strong>
+            <span>Taxes and shipping are calculated based on your state and will be confirmed before payment.</span>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="state">State <span class="field-req">*</span></label>
+              <select id="state" name="state" data-fs-field>
+                <option value="">Select your state</option>
+                <option>Alabama</option><option>Alaska</option><option>Arizona</option>
+                <option>Arkansas</option><option>California</option><option>Colorado</option>
+                <option>Connecticut</option><option>Delaware</option><option>Florida</option>
+                <option>Georgia</option><option>Hawaii</option><option>Idaho</option>
+                <option>Illinois</option><option>Indiana</option><option>Iowa</option>
+                <option>Kansas</option><option>Kentucky</option><option>Louisiana</option>
+                <option>Maine</option><option>Maryland</option><option>Massachusetts</option>
+                <option>Michigan</option><option>Minnesota</option><option>Mississippi</option>
+                <option>Missouri</option><option>Montana</option><option>Nebraska</option>
+                <option>Nevada</option><option>New Hampshire</option><option>New Jersey</option>
+                <option>New Mexico</option><option>New York</option><option>North Carolina</option>
+                <option>North Dakota</option><option>Ohio</option><option>Oklahoma</option>
+                <option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option>
+                <option>South Carolina</option><option>South Dakota</option><option>Tennessee</option>
+                <option>Texas</option><option>Utah</option><option>Vermont</option>
+                <option>Virginia</option><option>Washington</option><option>West Virginia</option>
+                <option>Wisconsin</option><option>Wyoming</option>
+                <option>Washington D.C.</option>
+                <option value="outside-us">Outside the US</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="quantity">Quantity</label>
+              <select id="quantity" name="quantity" data-fs-field>
+                <option value="1">1 copy</option>
+                <option value="2">2 copies</option>
+                <option value="3">3 copies</option>
+                <option value="4">4 copies</option>
+                <option value="5+">5 or more</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
         <div class="form-group">
           <label for="message">Message</label>
           <textarea id="message" name="message" placeholder="Tell me what you have in mind…" required data-fs-field></textarea>
@@ -199,9 +244,28 @@
       const subj = sessionStorage.getItem('contact-subject');
       if (subj) {
         const sel = document.getElementById('subject');
-        if (sel) sel.value = subj;
+        if (sel) { sel.value = subj; sel.dispatchEvent(new Event('change')); }
         sessionStorage.removeItem('contact-subject');
+        setTimeout(() => {
+          const extras = document.getElementById('book-extras');
+          if (extras) extras.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 300);
       }
+    })();
+
+    /* Show/hide book extras based on subject */
+    (function() {
+      const subj   = document.getElementById('subject');
+      const extras = document.getElementById('book-extras');
+      const state  = document.getElementById('state');
+      if (!subj || !extras) return;
+      function toggle() {
+        const isBook = subj.value === 'book';
+        extras.hidden = !isBook;
+        if (state) state.required = isBook;
+      }
+      subj.addEventListener('change', toggle);
+      toggle(); // run on load in case of pre-fill
     })();
     window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
     formspree('initForm', { formElement: '#contact-form', formId: 'xojrpway' });
