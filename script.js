@@ -54,7 +54,9 @@ if (gallery && lightbox) {
     current = index;
     inner.innerHTML = '';
     inner.appendChild(cloneForLightbox(items[current]));
-    caption.textContent = items[current].dataset.style || '';
+    const style  = items[current].dataset.style  || '';
+    const medium = items[current].dataset.medium || '';
+    caption.textContent = medium ? `${style} · ${medium}` : style;
     lightbox.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
@@ -68,14 +70,18 @@ if (gallery && lightbox) {
     current = (current - 1 + items.length) % items.length;
     inner.innerHTML = '';
     inner.appendChild(cloneForLightbox(items[current]));
-    caption.textContent = items[current].dataset.style || '';
+    const style  = items[current].dataset.style  || '';
+    const medium = items[current].dataset.medium || '';
+    caption.textContent = medium ? `${style} · ${medium}` : style;
   }
 
   function showNext() {
     current = (current + 1) % items.length;
     inner.innerHTML = '';
     inner.appendChild(cloneForLightbox(items[current]));
-    caption.textContent = items[current].dataset.style || '';
+    const style  = items[current].dataset.style  || '';
+    const medium = items[current].dataset.medium || '';
+    caption.textContent = medium ? `${style} · ${medium}` : style;
   }
 
   items.forEach((item, i) => {

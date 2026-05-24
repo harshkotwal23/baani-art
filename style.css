@@ -201,7 +201,9 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   opacity: 0;
   transition: opacity 0.3s ease;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
   padding: 1rem 1.1rem;
   z-index: 1;
 }
@@ -212,6 +214,14 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   font-style: italic;
   font-size: 0.9rem;
   letter-spacing: 0.06em;
+}
+.overlay-medium {
+  color: rgba(255,255,255,0.65);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  margin-top: 0.15rem;
 }
 
 /* real images */
