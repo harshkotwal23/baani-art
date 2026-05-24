@@ -29,7 +29,7 @@ if (gallery && lightbox) {
   const prevBtn  = document.getElementById('lightbox-prev');
   const nextBtn  = document.getElementById('lightbox-next');
 
-  const items = Array.from(gallery.querySelectorAll('.gallery-item'));
+  const items = Array.from(document.querySelectorAll('.gallery-item'));
   let current = 0;
 
   function cloneForLightbox(item) {

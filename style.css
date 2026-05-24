@@ -172,6 +172,42 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   margin: 0 auto;
 }
 
+/* Gallery section breaks — span all columns */
+.gallery-break {
+  column-span: all;
+  padding: 2.5rem 0 1.25rem;
+  margin-top: 1rem;
+  border-top: 1px solid var(--parchment-mid);
+}
+.gallery-break:first-child {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+.gallery-break__title {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.6rem;
+}
+.gallery-break__quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(0.92rem, 1.3vw, 1.05rem);
+  line-height: 1.8;
+  color: var(--ink);
+  max-width: 680px;
+}
+.gallery-break--minimal {
+  padding: 2rem 0 1rem;
+}
+.gallery-break--minimal .gallery-break__title {
+  margin-bottom: 0;
+}
+
 .gallery-item {
   break-inside: avoid;
   margin-bottom: var(--gap);
