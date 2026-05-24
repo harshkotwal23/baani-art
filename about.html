@@ -20,7 +20,7 @@
     </button>
     <ul class="nav-links" id="nav-links" role="list">
       <li><a href="index.html">Gallery</a></li>
-      <li><a href="book.html">Book</a></li>
+      <li><a href="book.html">Hanuman Chalisa</a></li>
       <li><a href="about.html" class="active">About &amp; Contact</a></li>
     </ul>
   </nav>
@@ -167,6 +167,47 @@
           <span data-fs-error="subject" class="field-error"></span>
         </div>
 
+        <!-- ── Artwork selector (shown for purchase subject) ──── -->
+        <div id="artwork-extras" class="book-extras" hidden>
+          <div class="form-group">
+            <label for="artwork">Which piece are you interested in? <span class="field-req">*</span></label>
+            <select id="artwork" name="artwork" data-fs-field>
+              <option value="">Select a piece</option>
+              <optgroup label="Pattachitra">
+                <option value="pattachitra-dancers">Six Classical Dancers · Handmade paper</option>
+                <option value="pattachitra-boat">Krishna Boat Scene · Handmade paper</option>
+                <option value="pattachitra-navdurga">Navdurga — Nine Divine Forms · Canvas</option>
+                <option value="pattachitra-nayika">Nayika Figures in Ink · Handmade paper</option>
+                <option value="pattachitra-boat-krishna">Krishna &amp; Gopis on Divine Boat · Canvas</option>
+              </optgroup>
+              <optgroup label="Kalighat">
+                <option value="kalighat-pujo">Grand Durga Puja Procession · Watercolour paper</option>
+                <option value="kalighat-durga">Durga Mahishasura Mardini · Watercolour paper</option>
+                <option value="kalighat-bb-outing">Bibi &amp; Babu — Couple on an Outing · Handmade paper</option>
+                <option value="kalighat-bb-mirror">Bibi &amp; Babu — Interior with Mirror · Handmade paper</option>
+                <option value="kalighat-bb-wine">Bibi &amp; Babu — Couple Sharing Wine · Handmade paper</option>
+              </optgroup>
+              <optgroup label="Kalamkari">
+                <option value="kalamkari-tree">Tree of Life with Twin Elephants · Canvas</option>
+                <option value="kalamkari-shiv-shakti">Shiv Shakti — Ardhanarishvara · Handmade paper</option>
+              </optgroup>
+              <optgroup label="Madhubani &amp; Mata ni Pachadi">
+                <option value="madhubani-khobar">Khobar Ritual Mandala · Watercolour paper</option>
+                <option value="mata-pachadi-1">Circular Mandala in Orange &amp; Red · Handmade paper</option>
+                <option value="mata-pachadi-2">Maroon Tree with Deity Medallions · Mix media paper</option>
+                <option value="mata-pachadi-3">Tree of Deities — Silver on Crimson · Canvas</option>
+              </optgroup>
+              <optgroup label="Phad · Gond · Bengal Pattachitra">
+                <option value="phad-hanuman">Phad Art — Panchamukhi Hanuman · Mix media paper</option>
+                <option value="gond-coasters">Gond Art — Hand-painted Ceramic Coasters</option>
+                <option value="bengal-pattachitra">Bengal Pattachitra — Mythological Tableau · Canvas</option>
+              </optgroup>
+              <option value="not-sure">I'm not sure yet — open to viewing available works</option>
+            </select>
+          </div>
+          <p class="artwork-extras__note">Prices are available upon inquiry. Archana will be in touch with details.</p>
+        </div>
+
         <!-- ── Book order extras (shown only for book subject) ── -->
         <div id="book-extras" class="book-extras" hidden>
           <div class="book-extras__banner">
@@ -253,19 +294,29 @@
       }
     })();
 
-    /* Show/hide book extras based on subject */
+    /* Show/hide conditional extras based on subject */
     (function() {
-      const subj   = document.getElementById('subject');
-      const extras = document.getElementById('book-extras');
-      const state  = document.getElementById('state');
-      if (!subj || !extras) return;
+      const subj          = document.getElementById('subject');
+      const bookExtras    = document.getElementById('book-extras');
+      const artworkExtras = document.getElementById('artwork-extras');
+      const stateEl       = document.getElementById('state');
+      const artworkEl     = document.getElementById('artwork');
+      if (!subj) return;
+
       function toggle() {
-        const isBook = subj.value === 'book';
-        extras.hidden = !isBook;
-        if (state) state.required = isBook;
+        const v = subj.value;
+        if (bookExtras)    { bookExtras.hidden    = (v !== 'book');     if (stateEl)   stateEl.required   = (v === 'book'); }
+        if (artworkExtras) { artworkExtras.hidden  = (v !== 'purchase'); if (artworkEl) artworkEl.required = (v === 'purchase'); }
       }
       subj.addEventListener('change', toggle);
-      toggle(); // run on load in case of pre-fill
+      toggle();
+
+      /* Pre-select artwork from gallery inquire */
+      const artworkKey = sessionStorage.getItem('contact-artwork');
+      if (artworkKey && artworkEl) {
+        artworkEl.value = artworkKey;
+        sessionStorage.removeItem('contact-artwork');
+      }
     })();
     window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
     formspree('initForm', { formElement: '#contact-form', formId: 'xojrpway' });

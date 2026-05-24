@@ -23,11 +23,12 @@ const gallery  = document.getElementById('gallery');
 const lightbox = document.getElementById('lightbox');
 
 if (gallery && lightbox) {
-  const inner    = document.getElementById('lightbox-inner');
-  const caption  = document.getElementById('lightbox-caption');
-  const closeBtn = document.getElementById('lightbox-close');
-  const prevBtn  = document.getElementById('lightbox-prev');
-  const nextBtn  = document.getElementById('lightbox-next');
+  const inner     = document.getElementById('lightbox-inner');
+  const caption   = document.getElementById('lightbox-caption');
+  const closeBtn  = document.getElementById('lightbox-close');
+  const prevBtn   = document.getElementById('lightbox-prev');
+  const nextBtn   = document.getElementById('lightbox-next');
+  const inquireBtn = document.getElementById('lightbox-inquire');
 
   const items = Array.from(document.querySelectorAll('.gallery-item'));
   let current = 0;
@@ -50,13 +51,25 @@ if (gallery && lightbox) {
     return document.createElement('div');
   }
 
+  function updateMeta() {
+    const item   = items[current];
+    const style  = item.dataset.style  || '';
+    const medium = item.dataset.medium || '';
+    const key    = item.dataset.artworkKey || '';
+    caption.textContent = medium ? `${style} · ${medium}` : style;
+    if (inquireBtn) {
+      inquireBtn.onclick = () => {
+        sessionStorage.setItem('contact-subject', 'purchase');
+        if (key) sessionStorage.setItem('contact-artwork', key);
+      };
+    }
+  }
+
   function openLightbox(index) {
     current = index;
     inner.innerHTML = '';
     inner.appendChild(cloneForLightbox(items[current]));
-    const style  = items[current].dataset.style  || '';
-    const medium = items[current].dataset.medium || '';
-    caption.textContent = medium ? `${style} · ${medium}` : style;
+    updateMeta();
     lightbox.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
@@ -70,18 +83,14 @@ if (gallery && lightbox) {
     current = (current - 1 + items.length) % items.length;
     inner.innerHTML = '';
     inner.appendChild(cloneForLightbox(items[current]));
-    const style  = items[current].dataset.style  || '';
-    const medium = items[current].dataset.medium || '';
-    caption.textContent = medium ? `${style} · ${medium}` : style;
+    updateMeta();
   }
 
   function showNext() {
     current = (current + 1) % items.length;
     inner.innerHTML = '';
     inner.appendChild(cloneForLightbox(items[current]));
-    const style  = items[current].dataset.style  || '';
-    const medium = items[current].dataset.medium || '';
-    caption.textContent = medium ? `${style} · ${medium}` : style;
+    updateMeta();
   }
 
   items.forEach((item, i) => {
