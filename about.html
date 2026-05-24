@@ -20,6 +20,7 @@
     </button>
     <ul class="nav-links" id="nav-links" role="list">
       <li><a href="index.html">Gallery</a></li>
+      <li><a href="book.html">Book</a></li>
       <li><a href="about.html" class="active">About &amp; Contact</a></li>
     </ul>
   </nav>
@@ -157,6 +158,7 @@
           <label for="subject">What's this about?</label>
           <select id="subject" name="subject" data-fs-field>
             <option value="">Select a reason</option>
+            <option value="book">Purchase Hanuman Chalisa book ($95.99)</option>
             <option value="commission">Commission a piece</option>
             <option value="purchase">Purchase an existing work</option>
             <option value="inquiry">General inquiry</option>
@@ -192,6 +194,15 @@
 
   <script src="script.js"></script>
   <script>
+    /* Pre-select subject if arriving from book order button */
+    (function() {
+      const subj = sessionStorage.getItem('contact-subject');
+      if (subj) {
+        const sel = document.getElementById('subject');
+        if (sel) sel.value = subj;
+        sessionStorage.removeItem('contact-subject');
+      }
+    })();
     window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
     formspree('initForm', { formElement: '#contact-form', formId: 'xojrpway' });
   </script>

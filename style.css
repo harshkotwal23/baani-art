@@ -340,7 +340,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 }
 .studio-peek__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: minmax(0, 600px);
+  justify-content: center;
   gap: var(--gap);
   margin-top: 1.5rem;
 }
@@ -395,6 +396,204 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   padding-bottom: 2px;
 }
 .home-cta__link:hover { border-color: var(--crimson); }
+
+/* ─── Book page ──────────────────────────────────────────── */
+.book-hero {
+  text-align: center;
+  padding: 4rem 2rem 3rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.book-hero__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 400;
+  color: var(--ink);
+  margin: 0.4rem 0 0.5rem;
+}
+.book-hero__sub {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+.book-hero__price {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1.35rem;
+  color: var(--crimson);
+  border: 1.5px solid var(--crimson);
+  border-radius: 2px;
+  padding: 0.3rem 1.1rem;
+  letter-spacing: 0.06em;
+}
+
+/* Carousel */
+.book-carousel-section {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 1.5rem;
+}
+.book-carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+  background: var(--ink);
+}
+.carousel-track {
+  display: flex;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+.carousel-slide {
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel-slide img {
+  width: 100%;
+  max-height: 600px;
+  object-fit: cover;
+  display: block;
+}
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(254,248,240,0.85);
+  border: none;
+  color: var(--ink);
+  font-size: 2rem;
+  line-height: 1;
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.2s;
+  z-index: 2;
+}
+.carousel-btn:hover { background: var(--parchment); }
+.carousel-prev { left: 0.75rem; }
+.carousel-next { right: 0.75rem; }
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 0 0.5rem;
+}
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--parchment-mid);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  padding: 0;
+}
+.carousel-dot.active {
+  background: var(--crimson);
+  transform: scale(1.3);
+}
+
+/* Book info */
+.book-info {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem 2.5rem 5rem;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 4rem;
+  align-items: start;
+}
+.book-info h2 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  margin-bottom: 1rem;
+}
+.book-info__desc {
+  font-size: 0.97rem;
+  line-height: 1.85;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+.book-features {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.book-features li {
+  font-size: 0.9rem;
+  color: var(--muted);
+  padding-left: 1.2rem;
+  position: relative;
+  line-height: 1.55;
+}
+.book-features li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+.book-info__cta {
+  position: sticky;
+  top: calc(var(--nav-h) + 1.5rem);
+  background: var(--ink);
+  border-radius: 3px;
+  padding: 2rem 1.75rem;
+  text-align: center;
+}
+.book-info__price-label {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 2rem;
+  color: var(--parchment);
+  margin-bottom: 0.25rem;
+}
+.book-info__shipping {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+.btn--book-order {
+  display: block;
+  width: 100%;
+  background: var(--crimson);
+  color: var(--parchment);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.85rem 1rem;
+  border-radius: 2px;
+  text-align: center;
+  transition: background 0.2s, opacity 0.2s;
+  margin-bottom: 1rem;
+}
+.btn--book-order:hover { background: #7d1c2a; }
+.book-info__note {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.book-info__note em { font-style: italic; }
+
+/* Book responsive */
+@media (max-width: 700px) {
+  .book-info {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 2rem 1.25rem 4rem;
+  }
+  .book-info__cta { position: static; }
+}
 
 /* ─── Footer ────────────────────────────────────────────── */
 footer {

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hanuman Chalisa — baani.art</title>
+  <meta name="description" content="A premium hand-illustrated collector's edition of the Hanuman Chalisa, inspired by traditional Phad folk art. Each verse illuminated with original artwork, meaning, and life essence.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ── Nav ──────────────────────────────────────────────── -->
+  <nav class="nav" role="navigation">
+    <a href="index.html" class="nav-logo">baani<span>.art</span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links" role="list">
+      <li><a href="index.html">Gallery</a></li>
+      <li><a href="book.html" class="active">Book</a></li>
+      <li><a href="about.html">About &amp; Contact</a></li>
+    </ul>
+  </nav>
+  <div class="folk-border"></div>
+
+  <main>
+
+    <!-- ── Book Hero ────────────────────────────────────────── -->
+    <section class="book-hero">
+      <p class="eyebrow">Collector's Edition</p>
+      <h1 class="book-hero__title">Hanuman Chalisa</h1>
+      <p class="book-hero__sub">A hand-illustrated devotional keepsake</p>
+      <p class="book-hero__price">$95.99</p>
+    </section>
+
+    <div class="folk-border folk-border--thin"></div>
+
+    <!-- ── Carousel ─────────────────────────────────────────── -->
+    <section class="book-carousel-section" aria-label="Book preview">
+      <div class="book-carousel" id="book-carousel">
+        <div class="carousel-track" id="carousel-track">
+          <div class="carousel-slide">
+            <img src="images/book-cover-wall.jpg" alt="Hanuman Chalisa collector's edition — hardcover book on stone wall, lavender and hills at dusk">
+          </div>
+          <div class="carousel-slide">
+            <img src="images/book-cover-vine.jpg" alt="Hanuman Chalisa — hand holding the crimson hardcover book in a vineyard under blue sky">
+          </div>
+          <div class="carousel-slide">
+            <img src="images/book-interior-hanuman.jpg" alt="Interior spread — hand-painted Hanuman on a lotus, vibrant folk art in Phad style">
+          </div>
+          <div class="carousel-slide">
+            <img src="images/book-interior-spread.jpg" alt="Interior spread — folk art illustrations alongside verse meaning and life essence in hand lettering">
+          </div>
+        </div>
+        <button class="carousel-btn carousel-prev" id="carousel-prev" aria-label="Previous">&#8249;</button>
+        <button class="carousel-btn carousel-next" id="carousel-next" aria-label="Next">&#8250;</button>
+      </div>
+      <div class="carousel-dots" id="carousel-dots" aria-label="Slide navigation">
+        <button class="carousel-dot active" aria-label="Slide 1"></button>
+        <button class="carousel-dot" aria-label="Slide 2"></button>
+        <button class="carousel-dot" aria-label="Slide 3"></button>
+        <button class="carousel-dot" aria-label="Slide 4"></button>
+      </div>
+    </section>
+
+    <!-- ── Book Info ─────────────────────────────────────────── -->
+    <section class="book-info">
+      <div class="book-info__text">
+        <h2>About the Book</h2>
+        <p class="book-info__desc">
+          A premium hand-illustrated collector's edition of the Hanuman Chalisa, inspired by the traditional Phad folk art of Rajasthan. Each of the forty verses is accompanied by detailed original artwork, along with its meaning and life essence — blending devotion, storytelling, and Indian heritage into a timeless keepsake.
+        </p>
+        <ul class="book-features">
+          <li>40 verses, each illuminated with original hand-painted artwork</li>
+          <li>Every verse paired with its meaning and life essence</li>
+          <li>Inspired by the Phad folk art tradition of Rajasthan</li>
+          <li>Premium hardcover with gold-embossed lettering</li>
+          <li>A gift of devotion — for the home, for the heart</li>
+        </ul>
+      </div>
+      <div class="book-info__cta">
+        <p class="book-info__price-label">$95.99</p>
+        <p class="book-info__shipping">+ shipping · ships from Seattle, WA</p>
+        <a href="about.html#contact" class="btn--book-order" id="book-order-btn">Order Your Copy</a>
+        <p class="book-info__note">
+          Click to reach our contact form. Select <em>"Purchase Hanuman Chalisa book"</em> and we'll be in touch within 24 hours with payment and shipping details.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="folk-border"></div>
+  <footer>
+    <p>© 2025 Archana &nbsp;&middot;&nbsp; Seattle, WA &nbsp;&middot;&nbsp; <a href="https://instagram.com/art.baani" target="_blank" rel="noopener">@art.baani</a></p>
+    <p class="footer-domain">baani.art</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    /* ── Book carousel ─────────────────────────────────────── */
+    const track = document.getElementById('carousel-track');
+    if (track) {
+      const slides = track.querySelectorAll('.carousel-slide');
+      const dots   = document.querySelectorAll('.carousel-dot');
+      let current  = 0;
+      let timer;
+
+      function goTo(n) {
+        current = ((n % slides.length) + slides.length) % slides.length;
+        track.style.transform = `translateX(-${current * 100}%)`;
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      }
+
+      function advance() { goTo(current + 1); }
+      function resetTimer() { clearInterval(timer); timer = setInterval(advance, 5000); }
+
+      document.getElementById('carousel-prev').addEventListener('click', () => { goTo(current - 1); resetTimer(); });
+      document.getElementById('carousel-next').addEventListener('click', () => { goTo(current + 1); resetTimer(); });
+      dots.forEach((d, i) => d.addEventListener('click', () => { goTo(i); resetTimer(); }));
+
+      /* touch swipe */
+      let tx = 0;
+      track.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+      track.addEventListener('touchend',   e => {
+        const delta = e.changedTouches[0].clientX - tx;
+        if (Math.abs(delta) > 40) { delta < 0 ? goTo(current + 1) : goTo(current - 1); resetTimer(); }
+      }, { passive: true });
+
+      timer = setInterval(advance, 5000);
+
+      /* Pre-select book option if arriving from order button */
+      document.getElementById('book-order-btn').addEventListener('click', () => {
+        sessionStorage.setItem('contact-subject', 'book');
+      });
+    }
+  </script>
+</body>
+</html>
