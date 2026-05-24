@@ -532,8 +532,8 @@ footer a:hover { color: var(--crimson); }
 }
 .traditions-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem 3rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem 2.5rem;
 }
 .tradition-card {
   border-top: 1px solid var(--parchment-mid);
